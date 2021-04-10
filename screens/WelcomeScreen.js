@@ -54,7 +54,12 @@ userLogin = (emailId, password) => {
     firebase.auth().signInWithEmailAndPassword(emailId, password)
     .then(() => {
 
-    }).catch((error) => {
+    })
+    return Alert.alert("Welcome Back","",[{
+        text:"Ok!"
+        onPress : () => this.props.navigation.navigate('ScheduleScreen')
+    }])
+    .catch((error) => {
         var errCode = error.code;
         var errorMessage = error.message;
         return Alert.alert(errorMessage);
